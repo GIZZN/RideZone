@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
 
 type TabType = 'orders' | 'contacts';
 
@@ -28,6 +30,8 @@ interface Contact {
 }
 
 export default function AdminPage() {
+  const router = useRouter();
+  const { user, isAuthenticated, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState<TabType>('orders');
   const [orders, setOrders] = useState<Order[]>([]);
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -36,9 +40,40 @@ export default function AdminPage() {
   const [replyText, setReplyText] = useState('');
   const [sendingReply, setSendingReply] = useState(false);
 
+  // Проверка прав доступа
   useEffect(() => {
-    loadData();
-  }, [activeTab]);
+    if (!authLoading) {
+      if (!isAuthenticated) {
+        router.push('/auth/login');
+      } else if (user?.role !== 'admin') {
+        router.push('/');
+      }
+    }
+  }, [authLoading, isAuthenticated, user, router]);
+
+  useEffect(() => {
+    if (user?.role === 'admin') {
+      loadData();
+    }
+  }, [activeTab, user]);
+
+  // Показываем загрузку пока проверяем авторизацию
+  if (authLoading || !isAuthenticated || user?.role !== 'admin') {
+    return (
+      <>
+        <Header />
+        <main className={styles.adminPage}>
+          <div className={styles.container}>
+            <div className={styles.loadingContainer}>
+              <div className={styles.spinner}></div>
+              <p>Проверка прав доступа...</p>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   const loadData = async () => {
     setLoading(true);
