@@ -1,0 +1,500 @@
+/* Login Page - Hero Style как на главной */
+.page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.authContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.authGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* Левая часть - информация */
+.authLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  text-decoration: none;
+  width: fit-content;
+}
+
+.logo h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.logo:hover h1 {
+  color: #a3e635;
+}
+
+.authInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.authBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(163, 230, 53, 0.1);
+  border: 1px solid rgba(163, 230, 53, 0.3);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  color: #a3e635;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: #a3e635;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.authTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.titleAccent {
+  color: #a3e635;
+  position: relative;
+  display: inline-block;
+}
+
+.authDescription {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  max-width: 500px;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.featureIcon {
+  width: 24px;
+  height: 24px;
+  background: rgba(163, 230, 53, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a3e635;
+  flex-shrink: 0;
+}
+
+.decorCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.decorCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  backdrop-filter: blur(20px);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.decorCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(163, 230, 53, 0.3);
+  background: rgba(163, 230, 53, 0.05);
+}
+
+.decorCardIcon {
+  width: 48px;
+  height: 48px;
+  background: rgba(163, 230, 53, 0.1);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a3e635;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.decorCard:hover .decorCardIcon {
+  background: #a3e635;
+  color: #0a0a0a;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.decorCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.decorCardValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.decorCardLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* Правая часть - форма */
+.authRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.formCard {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  backdrop-filter: blur(20px);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.formCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.3), transparent);
+}
+
+.formHeader {
+  margin-bottom: 2.5rem;
+}
+
+.formHeader h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.formHeader p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.formGroup label svg {
+  color: #a3e635;
+}
+
+.formGroup input {
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #a3e635;
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.formGroup input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.formGroup input.errorInput {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: -0.25rem;
+  font-weight: 500;
+}
+
+.apiError {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.35rem 2rem;
+  background: #a3e635;
+  border: none;
+  border-radius: 20px;
+  color: #0a0a0a;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.submitButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(163, 230, 53, 0.4);
+  background: #bef264;
+}
+
+.submitButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButton span,
+.submitButton svg {
+  position: relative;
+  z-index: 1;
+}
+
+.formFooter {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.signupPrompt {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.signupPrompt a {
+  color: #a3e635;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.signupPrompt a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #a3e635;
+  transition: width 0.3s ease;
+}
+
+.signupPrompt a:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .authGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .authLeft {
+    text-align: center;
+    align-items: center;
+  }
+
+  .authTitle {
+    font-size: 3rem;
+  }
+
+  .authDescription {
+    text-align: center;
+  }
+
+  .decorCards {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .authContainer {
+    padding: 1.5rem;
+  }
+
+  .authGrid {
+    gap: 3rem;
+    padding: 2rem 0;
+  }
+
+  .authTitle {
+    font-size: 2.5rem;
+  }
+
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .formCard {
+    padding: 2rem;
+  }
+
+  .formHeader h3 {
+    font-size: 1.5rem;
+  }
+
+  .decorCards {
+    grid-template-columns: 1fr;
+  }
+}
